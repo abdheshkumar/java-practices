@@ -24,7 +24,7 @@ public class TestSortMap {
         unsortMap.put("g", 50);
         unsortMap.put("m", 2);
         unsortMap.put("f", 9);
-
+        System.out.println(unsortMap);
         // sort by keys, a,b,c..., and return a new LinkedHashMap
         // toMap() will returns HashMap by default, we need LinkedHashMap to keep the order.
         Map<String, Integer> result = unsortMap.entrySet().stream()

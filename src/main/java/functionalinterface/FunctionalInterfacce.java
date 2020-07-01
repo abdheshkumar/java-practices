@@ -1,13 +1,11 @@
 package functionalinterface;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 /**
  * Created by abdhesh on 23/07/17.
+ * https://github.com/PacktPublishing/Learning-Functional-Data-Structures-and-Algorithms
  */
 public class FunctionalInterfacce {
     public static void main(String[] args) {
@@ -24,6 +22,9 @@ public class FunctionalInterfacce {
 
 
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
+        int [] aa = {2,0,3,9};
+        Arrays.parallelPrefix(aa, (left, right) -> left + right); //[2, 2, 5, 14]
+        System.out.println(Arrays.toString(aa));
         Collections.sort(names, (String a, String b) -> {
             return b.compareTo(a);
         });
@@ -43,7 +44,7 @@ public class FunctionalInterfacce {
         Converter<String, String> converter1 = something::startsWith;
 
         String converted1 = converter1.convert("Java");
-        System.out.println(converted);
+        System.out.println(converted1);
 //how the :: keyword works for constructors
         PersonFactory<Person> personFactory = Person::new;
         Person person = personFactory.create("Peter", "Parker");
@@ -151,6 +152,13 @@ interface Formula {
     }
 }
 
+/**
+ * To ensure that your interface meet the requirements, you should add the @FunctionalInterface annotation.
+ * The compiler is aware of this annotation and throws a compiler error as soon as you try to add a second abstract method declaration to the interface.
+ * Keep in mind that the code is also valid if the @FunctionalInterface annotation would be omitted.
+ * @param <F>
+ * @param <T>
+ */
 @FunctionalInterface
 interface Converter<F, T> {
     T convert(F from);
