@@ -9,7 +9,6 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
-import static javafx.scene.input.DataFormat.URL;
 
 public class FunctionalInterfaceApp {
     public static void main(String[] args) {

@@ -40,23 +40,32 @@ public class StringApp {
         EnumMap<Weekday, String> personInCharge = new EnumMap<>(Weekday.class);
         personInCharge.put(Weekday.MONDAY, "Fred");
 
+        /*
+        Resizable-array implementation of the Deque interface. Array deques have no capacity restrictions; they grow as necessary to support usage. They are not thread-safe.
+        They do not support concurrent access by multiple threads. Null elements are prohibited
+         */
+        System.out.println("**********Stack**ArrayDeque**Use push************");
         ArrayDeque<String> stack = new ArrayDeque<>();
         stack.push("Peter");
         stack.push("Paul");
         stack.push("Mary");
+        //stack.push(null);
         while (!stack.isEmpty())
             System.out.println(stack.pop());
-        System.out.println("**************************");
-        Queue<String> queue = new ArrayDeque<>();
+
+        System.out.println("**********Queue**ArrayDeque****Use add**********");
+        ArrayDeque<String> queue = new ArrayDeque<>();
+        //Deque<String> queue1 = new ArrayDeque<>();
         queue.add("Peter");
         queue.add("Paul");
         queue.add("Mary");
+        queue.add("Mine");
+
         while (!queue.isEmpty())
-            System.out.println(queue.remove());
-        Comparator<Job> jobComparator = Comparator.comparingInt(job -> {
-            System.out.println("Comparator");
-            return job.priority;
-        });
+            System.out.println( " pop: " + queue.pop());
+
+
+        Comparator<Job> jobComparator = Comparator.comparingInt(job -> job.priority);
         PriorityQueue<Job> jobs = new PriorityQueue<>(jobComparator);
         jobs.add(new Job(4, "Collect garbage"));
         jobs.add(new Job(9, "Match braces"));
@@ -92,6 +101,13 @@ public class StringApp {
 
         String elseGet = optionalString.orElseGet(() -> System.getProperty("myapp.default"));
         String s = optionalString.orElseThrow(IllegalStateException::new);
+
+        //How to convert an array of String to arraylist?
+        String[] words = {"ace", "boom", "crew", "dog", "eon"};
+        List<String> strings = Arrays.asList(words);
+        ArrayList<String> arrayList1 = new ArrayList(Arrays.asList(strings));
+        Collections.reverse(arrayList1);
+        System.out.println(arrayList1);
 
     }
 
