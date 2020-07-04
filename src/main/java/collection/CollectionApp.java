@@ -23,6 +23,12 @@ public class CollectionApp {
         System.out.println(map);
     }
 
+    String a = "";
+
+    static {
+        System.out.println("HEllo static");
+    }
+
     public static void main(String[] args) {
         // step 1 - create a concurrent hashmap (optional)
         ConcurrentHashMap<String, String> wordLength = new ConcurrentHashMap<>();
@@ -77,7 +83,12 @@ public class CollectionApp {
         stringStringHashtable.put("2", "2");
         stringStringHashtable.put("3", "3");
         stringStringHashtable.put("1", "1");
-        //stringStringHashtable.put(null,null); //Key and value both should be not null
-        testMap(stringStringHashtable);
+        //stringStringHashtable.put(null, null); //Key and value both should be not null
+        //testMap(stringStringHashtable);
+        //There is no ConcurrentHashSet class
+        //The static newKeySet method yields a Set<K> that is actually a wrapper around a ConcurrentHashMap<K, Boolean> . (All map values are Boolean.TRUE
+        Set<String> newKeySet = ConcurrentHashMap.newKeySet();
+        newKeySet.add("Java");
+        System.out.println(newKeySet);
     }
 }

@@ -1,7 +1,9 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class ArrayListReverseDemo {
     public static void main(String args[]) {
@@ -18,5 +20,9 @@ public class ArrayListReverseDemo {
         System.out.println("After Reversing : " + listOfInts);
 
 
+        List<String> listOfString = Arrays.asList("London", "Tokyo", "NewYork");
+        //listOfString.add("Tes");//Exception in thread "main" java.lang.UnsupportedOperationException
+        Collections.sort(listOfString, Collections.reverseOrder());
+        System.out.println(listOfString); //[Tokyo, NewYork, London]
     }
 }
