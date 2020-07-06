@@ -14,8 +14,15 @@ public class ArrayListReverseDemo {
         listOfInts.add("3");
         listOfInts.add("4");
         listOfInts.add("5");
+        listOfInts.add("6");
+        listOfInts.add("7");
+        listOfInts.add("8");
+        listOfInts.add("9");
+        listOfInts.add("10");
+        listOfInts.add("11");
 
         System.out.println("Before Reversing : " + listOfInts);
+        System.out.println("Capacity: "+ listOfInts.size());
         Collections.reverse(listOfInts);
         System.out.println("After Reversing : " + listOfInts);
 
