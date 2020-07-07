@@ -5,12 +5,12 @@ import java.util.TreeMap;
 
 public class TreeMapApp {
     public static void main(String[] args) {
-        TreeMap<Integer, String> integerStringTreeMap = new TreeMap<>();
+        /*TreeMap<Integer, String> integerStringTreeMap = new TreeMap<>();
         integerStringTreeMap.put(2, "2");
         integerStringTreeMap.put(1, "1");
-        System.out.println(integerStringTreeMap);
-        //Comparator<Test> testComparator = (t1, t2) -> t1.name.compareToIgnoreCase(t2.name);
-        TreeMap<Test, String> testStringTreeMap = new TreeMap<>();
+        System.out.println(integerStringTreeMap);*/
+        Comparator<Test> testComparator = (t1, t2) -> t1.name.compareToIgnoreCase(t2.name);
+        TreeMap<Test, String> testStringTreeMap = new TreeMap<>(testComparator);
         testStringTreeMap.put(new Test("B"), "B");
         testStringTreeMap.put(new Test("A"), "A");
         System.out.println(testStringTreeMap);
